@@ -13,8 +13,16 @@ module.exports = defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI
-    ? [["github"], ["html", { open: "never" }]]
-    : [["list"], ["html", { open: "never" }]],
+    ? [
+        ["github"],
+        ["html", { open: "never" }],
+        ["json", { outputFile: "test-results/playwright-results.json" }],
+      ]
+    : [
+        ["list"],
+        ["html", { open: "never" }],
+        ["json", { outputFile: "test-results/playwright-results.json" }],
+      ],
   use: {
     baseURL,
     trace: "retain-on-failure",

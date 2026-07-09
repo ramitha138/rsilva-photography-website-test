@@ -56,6 +56,42 @@ Show the latest HTML report:
 npm run test:report
 ```
 
+## AI Failure Triage
+
+The framework can optionally summarize failed Playwright runs with AI. Playwright still controls pass/fail; AI output is advisory.
+
+Local setup uses `.env.local`, which is ignored by Git:
+
+```text
+AI_PROVIDER=openai
+OPENAI_MODEL=gpt-4.1-mini
+OPENAI_API_KEY=your-local-key
+```
+
+Run triage after a test run:
+
+```bash
+npm run ai:triage
+```
+
+Provider support:
+
+- `openai` is implemented first.
+- Anthropic, Gemini, and OpenRouter can be added later through `scripts/ai/providers/` without changing the tests.
+
+For GitHub Actions, add `OPENAI_API_KEY` under:
+
+```text
+Settings -> Secrets and variables -> Actions -> Secrets
+```
+
+Optional Actions variables:
+
+```text
+AI_PROVIDER=openai
+OPENAI_MODEL=gpt-4.1-mini
+```
+
 ## Coverage
 
 - Homepage smoke checks

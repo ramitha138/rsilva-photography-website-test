@@ -7,6 +7,7 @@
   "scripts": {
     "test": "playwright test",
     "test:e2e": "playwright test",
+    "ai:triage": "node scripts/ai-triage.js",
     "test:e2e:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",

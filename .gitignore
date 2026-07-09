@@ -2,4 +2,6 @@ node_modules/
 playwright-report/
 test-results/
 .env
+.env.local
 .DS_Store
+ai-triage-summary.md
